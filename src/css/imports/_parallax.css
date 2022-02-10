@@ -1,0 +1,29 @@
+.bg-parallax {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 999;
+    min-height: 500px;
+}
+
+
+.parallax-caption {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    /* bottom: 0; */
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-width: 1024px) {
+    .bg-parallax {
+        background-attachment: scroll;
+    }
+}

@@ -56,6 +56,7 @@
 @import './imports/_overflow';
 @import './imports/_position';
 @import './imports/_opacity';
+@import './imports/_parallax';
 @import './imports/_spacing';
 @import './imports/_text-decoration';
 @import './imports/_text-align';
@@ -73,6 +74,12 @@
 @import './imports/_svg';
 @import './imports/_cms';
 
+/* Custom */
+@import './custom/_accordion';
+@import './custom/_fonts';
+@import './custom/_hamburger';
+@import './custom/_instagram';
+
 /* Variables */
 /* Importing here will allow you to override any variables in the modules */
 @import './imports/_colors';
@@ -85,3 +92,124 @@
 
 /* Uncomment out the line below to help debug layout issues */
 /*@import './imports/_debug';*/
+
+
+.map {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections */
+    background: #fff;
+    background-attachment: fixed;
+    background-size: cover;
+}
+body * {
+    margin: 0;
+    padding: 0;
+}
+
+#mobileJumbo {
+    padding: 0;
+    margin: 0;
+}
+
+/* The only rule that matters */
+#video-background {
+    /* making the video fullscreen */
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 100;
+
+}
+
+
+
+#navBar {
+    color: white
+}
+
+.hidden {
+    visibility: hidden
+}
+
+
+
+.altShadow, .altShadow2, .altShadow3 {
+    color: white;
+    /* text-shadow: -0px  0px 2px var(--primary),
+                 -0px -0px 2px var(--primary), 
+                  0px  0px 2px var(--primary), 
+                  0px -0px 2px var(--primary); */
+    text-shadow: -2px 2px 0px var(--primary);
+    text-transform: uppercase;
+    font-family: 'open sans condensed';
+    /* font-family: 'IM Fell DW Pica SC'; */
+    letter-spacing: 2px;
+    padding: 0px 20px;
+}
+
+.altShadow{
+    font-size: 2.5rem;
+    
+}
+
+.altShadow2 {
+    text-shadow: -2px 1px 1px var(--primary)
+}
+.altShadow3{
+    font-size: 1.9rem
+}
+
+
+	#sideNav .navLink:hover {
+	    background-color: var(--primary);
+	    color: white;
+    }
+    
+    .uppercase{
+        text-transform: uppercase;
+    }
+
+    .instagram_biography{
+        display:none;
+    }
+
+    .instagram_username{
+        display: flex;
+        flex-direction: center;
+        flex-direction: row
+    }
+
+    .instagram_username a {
+        margin-left: 10px;
+        margin-top: 8px;
+        text-decoration: none;
+    }
+
+    .ig_icon{
+        background-color: #444;
+        width: 50px;
+        height: 100%;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background-image: url('/img/instagram_logo.png');
+        background-size: 35px 35px;
+        background-repeat: no-repeat;
+        background-position: center center
+    }
+    .ig_name{
+        padding-left: 50px;
+        background-color: #333
+    }

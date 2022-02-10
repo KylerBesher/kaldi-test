@@ -36,6 +36,13 @@
   color: var(--black);
 }
 
+.midnight {
+  color: var(--midnight);
+}
+.charcoal {
+  color: var(--charcoal);
+}
+
 .bg-primary {
   background-color: var(--primary);
 }
@@ -51,6 +58,8 @@
 .bg-off-white {
   background-color: var(--off-white);
 }
+
+
 
 .bg-grey-1 {
   background-color: var(--grey-1);
@@ -68,8 +77,37 @@
   background-color: var(--grey-4);
 }
 
+
 .bg-black {
   background-color: var(--black);
+}
+
+.bg-black-1 {
+  background-color: var(--black-1);
+}
+
+.bg-black-2 {
+  background-color: var(--black-2);
+}
+
+.bg-black-3 {
+  background-color: var(--black-4);
+}
+
+.bg-black-4 {
+  background-color: var(--black-4);
+}
+
+
+.bg-transparent { 
+  background-color: transparent;
+}
+
+.bg-midnight {
+  background-color: var(--midnight);
+}
+.bg-charcoal {
+  background-color: var(--charcoal);
 }
 
 .bg-fix-primary {

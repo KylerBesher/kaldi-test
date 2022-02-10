@@ -5,6 +5,7 @@
 		font-weight: var(--bold-font-weight);
 		line-height: 1.25;
     margin-bottom: var(--spacing-small);
+    margin-top: var(--spacing-small);
   }
 
   & h1 {
@@ -20,7 +21,8 @@
   }
 
   & h4 {
-    font-size: 1rem;;
+    font-size: 1rem;
+
   }
 
   & h5 {
