@@ -171,6 +171,23 @@ collections:
                 ],
             }
           - { label: Parallax Image 4, name: parallax4, widget: image }
-          # - { label: Shop info, name: parallax4, widget: image }
+          - { label: Shop info, name: info, widget: object, fields: 
+                [
+                  { label: "Street Address", name: "address", widget: string },
+                  { label: "City", name: "city", widget: string },
+                  { label: "State", name: "state", widget: string },
+                  { label: "Zip Code", name: "zip", widget: number },
+                  { label: "Phone Number", name: "phone", widget: string },
+                  { label: "Logo Small", name: "logoSmall", widget: image },
+                  { label: "Logo Big", name: "logoBig", widget: image },
+                  { label: Hours, name: hours, widget: list, fields: 
+                      [
+                        { label: "Day Range", name: "day", widget: string },
+                        { label: "Time Range", name: "times", widget: string },
+                      ]
+                  }  
+
+                ]
+            }  
 
           
