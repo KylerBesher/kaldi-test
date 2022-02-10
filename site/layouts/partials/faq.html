@@ -1,0 +1,18 @@
+<div id="faq" class="bg-black-2 pv4">
+    {{ partial "header" (dict "heading" "FAQ" )}}
+    <div class="mw7 center pa3 pb4">
+        {{ with .Site.GetPage "/" }}
+
+        {{range .Params.faqs}}
+        <div class="mb2">
+            <button class="accordion bg-grey-2 b">{{.question}}</button>
+            <div class=" panel bg-grey-1 cms ">
+                <div class="pa2 panelContent">{{.answer}}</div>
+            </div>
+        </div>
+
+        {{end}}
+        {{end}}
+
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div id="shop" class="relative pv4 bg-black-2 white">
+
+    {{ with .Site.GetPage "/" }}
+    {{ partial "header" (dict "heading" "The Shop" )}}
+
+    <p class="f6 mw7 center ph4 pb2 tj">{{.Params.theShop}} </p>
+    {{end}}
+
+    <div id="instagram-feed-demo" class="mw7 center"></div>
+</div>

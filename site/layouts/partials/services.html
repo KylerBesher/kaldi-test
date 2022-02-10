@@ -1,0 +1,38 @@
+<div id="care" class="bg-black-2 pv4">
+    {{ partial "header" (dict "heading" "Precare and Aftercare" )}}
+
+
+    <div class="mw7 f6 center pa3">
+
+        {{ with .Site.GetPage "/" }}
+        {{range .Params.aftercare}}
+        {{if eq .isDraft false}}
+        <h3 class="f3 b primary altShadow2 specialFont mv2">{{.type}}</h3>
+        {{range .sections}}
+
+
+        <div class="mb2 mt2">
+            <button class="accordion bg-grey-2 b">{{.title}}</button>
+            <div class=" panel bg-grey-1 ">
+                <div class="pa3 cms">
+                    {{.content | markdownify}}
+                </div>
+            </div>
+
+            {{end}}
+        </div>
+
+        {{end}}
+
+        {{ end }}
+        {{ end }}
+
+
+
+
+
+
+
+    </div>
+</div>
+</div>

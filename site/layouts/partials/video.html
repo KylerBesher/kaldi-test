@@ -1,0 +1,12 @@
+<div style="width: 100vw;">
+
+    <video style="width:100vw; margin: 0; padding: 0; margin-bottom: -12px; margin-top:-25px" id="video-backgrounds"
+        class="" autoplay loop muted plays-inline>
+    {{ with .Site.GetPage "/" }}
+
+        <source src="{{.Params.video}}" type="video/mp4">
+        {{end}}
+    </video>
+
+
+</div>

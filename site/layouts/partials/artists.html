@@ -1,0 +1,15 @@
+<div id="artists" class="relative pv4 bg-black-2 white">
+        {{ with .Site.GetPage "/" }}
+    {{ partial "header" (dict "heading" .Params.artists.heading )}}
+    <p class="mw7 center tj f6 ph4">
+        {{.Params.artists.text}}
+    </p>
+    <div class="flex flex-column flex-row-ns flex-wrap justify-center mw7 specialFont center">
+        {{range sort (where .Site.Pages "Type" "artists") "Weight"}}
+        {{if .Params.position}}
+        {{ .Render "artists" }}
+        {{end}}
+        {{ end }}
+    </div>
+            {{ end }}
+</div>

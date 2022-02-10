@@ -1,19 +1,69 @@
-<nav class="overflow-x-scroll overflow-x-visible-ns flex justify-between items-center center bg-white divider-grey relative">
+<a href="/#home" class="db w4  justify-center fixed dn block-l center"
+	style="left: 50%; margin-left: -3.3rem; margin-top:15px; z-index: 1001">
+	<img src="/img/logo.png" alt="Kaldi logo" class="br0 dn db-l " />
+</a>
 
-	<!-- Logo -->
-	<a href="/" class="pa3 db mr4 h-100 w3 flex-none">
-		<img src="/img/logo.svg" alt="Kaldi logo" class="br0 db mb0 w-100"/>
-	</a>
 
-	<!-- Primary Nav -->
-	<ul class="flex b grey-3">
-		<li><a href="/products" class="pa3 no-underline db">Products</a></li>
+<nav id="navWrap" class="overflow-x-hidden overflow-y-scroll fixed w-100 " 
+style="z-index: 1000; overflow-y: auto; ">
+	<div class="flex center items-center center bg-charcoal divider-grey pv2 relative border-box">
+		<!-- Logo -->
 
-		<li><a href="/values" class="pa3 no-underline db">Values</a></li>
 
-		<li><a href="/post" class="pa3 no-underline db">Blog</a></li>
+		<!-- Primary Nav -->
 
-		<li><a href="/contact" class="pa3 no-underline db">Contact</a></li>
+
+
+
+		<ul id="navBar" class="dn flex-l b grey-3 center specialFont pb2 uppercase">
+			<li><a href="/#about" class="navLink ph2 mh1 pv1 mt2 no-underline db ">About Us</a></li>
+			<li><a href="/#care" class="navLink ph2 mh1 pv1 mt2 no-underline db ">Care</a></li>
+			<li><a href="/#artists" class="navLink ph2 mh1 pv1 mt2 no-underline db ">Artists</a></li>
+
+
+
+			<li class="w4 mh2"></li>
+
+			<li><a href="/#faq" class="navLink ph2 mh1 pv1 mt2 no-underline db ">FAQ</a></li>
+			<li><a href="/#shop" class="navLink ph2 mh1 pv1 mt2 no-underline db ">The Shop</a></li>
+			<li><a href="/#contact" class="navLink ph2 mh1 pv1 mt2 no-underline db ">Contact</a></li>
+		</ul>
+
+
+
+
+		<div class=" dn-l  w-100">
+			<div class="w-100 flex w-100 justify-between ">
+				<a href="/#home" class="w4 ml4 ">
+					<img src="/img/logo.png" alt="Kaldi logo" class="br0 db " />
+				</a>
+				<div class="dn-l mt3 mr3">
+					<button id="navBurger" class="hamburger hamburger--collapse flex flex-column justify-end"
+						type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<ul id="sideNav" class="bg-white dn h-100 scroll overflow-y-scroll navFont" style="overflow-y: auto;" height: 100%;>
+		<li><a href="/#about" class="navLink pa3 db bb no-underline primary b">About Us</a></li>
+		<li><a href="/#care" class="navLink pa3 db bb no-underline primary b">Care</a></li>
+		<li><a href="/#artists" class="navLink pa3 db bb no-underline primary b">Artists</a></li>
+		<li><a href="/#faq" class="navLink pa3 db bb no-underline primary b">FAQ</a></li>
+		<li><a href="/#shop" class="navLink pa3 db bb no-underline primary b">The Shop</a></li>
+		<li><a href="/#contact" class="navLink pa3 db bb no-underline primary b">Contact</a></li>
 	</ul>
-
 </nav>
+
+
+
+<div id="navFix"></div>
+
+
+<style>
+
+</style>
