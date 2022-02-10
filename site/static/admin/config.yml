@@ -3,82 +3,172 @@ backend:
   branch: main
   repo: 'KylerBesher/kaldi-test'
 
-media_folder: "site/static/img" # Folder where user uploaded files should go
+media_folder: "site/static/img" 
 public_folder: "img"
 
-collections: # A list of collections the CMS should be able to edit
-  - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Post" # Used in the UI, ie.: "New Post"
-    folder: "site/content/post" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Intro Blurb", name: "description", widget: "text"}
-      - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+collections:
+  - name: "artists"
+    label: "Artist"
+    editor:
+      preview: false
+    folder: "site/content/artists"
+    create: true
+    fields:
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          hint: "This is what will show up in the url. eg truelovetattooks.com/artists/TITLE",
+        }
+      - { label: "First Name", name: "firstName", widget: "string" }
+      - { label: "Last Name", name: "lastName", widget: "string" }
+      - {
+          label: "Individual Profile Image",
+          name: "imageProfile",
+          widget: "image",
+          required: true,
+        }
+      - {
+          label: "Color Homepage Image",
+          name: "imageColor",
+          widget: "image",
+          required: true,
+        }
+      - {
+          label: "B&W Homepage Image",
+          name: "imageBw",
+          widget: "image",
+          required: true,
+        }
+
+      - {
+          label: "Position",
+          name: "position",
+          widget: "select",
+          options:
+            [
+              "Tattooer",
+              "Piercer",
+              "Tattoo Apprentice",
+              "Piercing Apprentice",
+              "Tattooer/Owner",
+            ],
+        }
+      - {
+          label: "Social",
+          name: social,
+          widget: list,
+          max: 2,
+          fields:
+            [
+              {
+                label: "Type",
+                name: "type",
+                widget: select,
+                options: ["icons-facebook", "icons-instagram"],
+              },
+              { label: "Link", name: "link", widget: string },
+            ],
+        }
+      - {
+          label: "Bio",
+          name: bio,
+          widget: object,
+
+          fields:
+            [
+              {
+                label: "Type",
+                name: "type",
+                widget: select,
+                options: ["Tattooing", "Piercing", "Tattooing and Piercing"],
+              },
+
+              {
+                label: "Since",
+                name: "since",
+                widget: number,
+                value_type: "int",
+              },
+              { label: "Inspired", name: "inspired", widget: text },
+              { label: "Specializes", name: "specializes", widget: text },
+              { label: "First Tattoo", name: "firstTattoo", widget: text },
+              { label: "Outside", name: "outside", widget: text },
+            ],
+        }
+
   - name: "pages"
-    label: "Pages"
+    label: "Main Page"
+    editor:
+      preview: false
     files:
       - file: "site/content/_index.md"
         label: "Home Page"
         name: "home"
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Subtitle, name: subtitle, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: "Blurb", name: blurb, widget: object, fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Intro", name: intro, widget: object, fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Products", name: products, widget: list, fields: [
-              {label: "Image", name: "image", widget: "image"},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Values", name: "values", widget: "object", fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
-      - file: "site/content/contact/_index.md"
-        label: "Contact Page"
-        name: "contact"
-        fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Logo, name: logo, widget: image}
-          - {label: Body, name: body, widget: markdown}
-          - label: Contact Entries
-            name: contact_entries
-            widget: list
-            fields:
-              - label: Heading
-                name: heading
-                widget: string
-              - label: Text
-                name: text
-                widget: text
-      - file: "site/content/products/_index.md"
-        label: "Products Page"
-        name: "products"
-        fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-          - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
-          - {label: Full_image, name: full_image, widget: image}
-          - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
-      - file: "site/content/values/_index.md"
-        label: "Values Page"
-        name: "values"
-        fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - label: Values
-            name: values
-            widget: list
-            fields:
-              - {label: Heading, name: heading, widget: string}
-              - {label: Text, name: text, widget: text}
-              - {label: Image, name: imageUrl, widget: image}
+          - { label: Title, name: title, widget: hidden, default: "Home"}
+          - { label: Video, name: video, widget: file, hint: Make sure that this is an MP4 file }
+
+          - {
+              label: "About True Love",
+              name: blurb,
+              widget: object,
+              fields:
+                [
+                  { label: "Heading", name: "heading", widget: string },
+                  { label: "Text", name: "text", widget: "text" },
+                ],
+            }
+          - { label: Parallax Image 1, name: parallax1, widget: image }
+
+          - {
+              label: "Care Section",
+              name: aftercare,
+              widget: list,
+
+              fields:
+                [
+                  {
+                    label: "Type",
+                    name: "type",
+                    widget: select,
+                    options: ["Tattoos", "Piercings"],
+                  },
+                  { label: "Is Hidden", name: "isDraft", widget: boolean },
+                  {
+                    label: "Sections",
+                    name: sections,
+                    widget: list,
+                    fields:
+                      [
+                        { label: Heading, name: title, widget: string },
+                        { label: Body, name: content, widget: markdown },
+                      ],
+                  },
+                ],
+            }
+          - { label: Parallax Image 2, name: parallax2, widget: image }
+
+          - {
+              label: "Artists",
+              name: artists,
+              widget: object,
+              fields:
+                [
+                  { label: "Heading", name: "heading", widget: string },
+                  { label: "Text", name: "text", widget: "text" },
+                ],
+            }
+          - { label: Parallax Image 3, name: parallax3, widget: image }
+          - {
+              label: "Faqs",
+              name: faqs,
+              widget: list,
+              fields:
+                [
+                  { label: "Heading", name: "question", widget: string },
+                  { label: "Content", name: "answer", widget: text },
+                ],
+            }
+          - { label: Parallax Image 4, name: parallax4, widget: image }
+          
