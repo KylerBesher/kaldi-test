@@ -153,6 +153,8 @@ info:
   zip: 67401 
   phone: 785-833-5083
 
+  logoSmall: /img/logo2.png
+  logoBig: /img/logo2.png
   hours:
       - day: Tuesday - Saturday
         times: 11:00 am - 8:00 pm
@@ -160,6 +162,5 @@ info:
         times: Closed
 mapIframe: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d722. 3850121719527!2d-97.60925639777585!3d38. 839748108647186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13. 1!3m3!1m2!1s0x87bcc5ba6f13511b%3A0x1fad5d9fef2c4260!2sTrue+Love +Tattoo!5e0!3m2!1sen!2sus!4v1566358472073!5m2!1sen!2sus
 ---
-asdfasdf
----
+
 

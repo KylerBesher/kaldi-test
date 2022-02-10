@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: 'main'
   repo: 'KylerBesher/kaldi-test'
 
 media_folder: "site/static/img" 
@@ -171,4 +171,6 @@ collections:
                 ],
             }
           - { label: Parallax Image 4, name: parallax4, widget: image }
+          # - { label: Shop info, name: parallax4, widget: image }
+
           
