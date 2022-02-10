@@ -1,6 +1,8 @@
 <a href="/#home" class="db w4  justify-center fixed dn block-l center"
 	style="left: 50%; margin-left: -3.3rem; margin-top:15px; z-index: 1001">
-	<img src="/img/logo.png" alt="True Love logo" class="br0 dn db-l " />
+		{{ with .Site.GetPage "/" }}
+	<img src="{{.Params.info.logoSmall}}" alt="True Love logo" class="br0 dn db-l " />
+	{{end}}
 </a>
 
 
@@ -35,7 +37,10 @@ style="z-index: 1000; overflow-y: auto; ">
 		<div class=" dn-l  w-100">
 			<div class="w-100 flex w-100 justify-between ">
 				<a href="/#home" class="w4 ml4 ">
-					<img src="/img/logo.png" alt="True love logo" class="br0 db " />
+							{{ with .Site.GetPage "/" }}
+							<img src="{{.Params.info.logoSmall}}" alt="True love logo" class="br0 db " />
+							{{end}}
+
 				</a>
 				<div class="dn-l mt3 mr3">
 					<button id="navBurger" class="hamburger hamburger--collapse flex flex-column justify-end"

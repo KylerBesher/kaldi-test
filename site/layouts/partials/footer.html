@@ -3,8 +3,11 @@
 	<div class="mw7 center pt3">
 
 		<div class="measure-narrow center mb4">
+							{{ with .Site.GetPage "/" }}
 
-			<img src="/img/logo2.png" alt="True Love logo" class="db w5 center mb4 br0">
+							<img src="{{.Params.info.logoBig}}" alt="True Love logo" class="db w5 center mb4 br0">
+							{{end}}
+
 
 		</div>
 
