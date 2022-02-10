@@ -1,9 +1,9 @@
 backend:
   name: git-gateway
-  branch: 'main'
-  repo: 'KylerBesher/kaldi-test'
+  branch: "main"
+  repo: "KylerBesher/kaldi-test"
 
-media_folder: "site/static/img" 
+media_folder: "site/static/img"
 public_folder: "img"
 
 collections:
@@ -18,10 +18,11 @@ collections:
           label: "Title",
           name: "title",
           widget: "string",
+          required: true,
           hint: "This is what will show up in the url. eg truelovetattooks.com/artists/TITLE",
         }
-      - { label: "First Name", name: "firstName", widget: "string" }
-      - { label: "Last Name", name: "lastName", widget: "string" }
+      - { label: "First Name", name: "firstName", widget: "string",required: true, }
+      - { label: "Last Name", name: "lastName", widget: "string",required: true, }
       - {
           label: "Individual Profile Image",
           name: "imageProfile",
@@ -33,18 +34,22 @@ collections:
           name: "imageColor",
           widget: "image",
           required: true,
+          hint: needs to be 800 pixels wide by 1224 tall,
         }
       - {
           label: "B&W Homepage Image",
           name: "imageBw",
           widget: "image",
           required: true,
+          hint: needs to be 800 pixels wide by 1224 tall,
         }
 
       - {
           label: "Position",
           name: "position",
           widget: "select",
+          required: true,
+
           options:
             [
               "Tattooer",
@@ -59,21 +64,26 @@ collections:
           name: social,
           widget: list,
           max: 2,
+          required: true,
+
           fields:
             [
               {
                 label: "Type",
                 name: "type",
                 widget: select,
+                required: true,
+
                 options: ["icons-facebook", "icons-instagram"],
               },
-              { label: "Link", name: "link", widget: string },
+              { label: "Link", name: "link", widget: string, required: true },
             ],
         }
       - {
           label: "Bio",
           name: bio,
           widget: object,
+          required: true,
 
           fields:
             [
@@ -82,6 +92,7 @@ collections:
                 name: "type",
                 widget: select,
                 options: ["Tattooing", "Piercing", "Tattooing and Piercing"],
+                required: true,
               },
 
               {
@@ -89,11 +100,32 @@ collections:
                 name: "since",
                 widget: number,
                 value_type: "int",
+                required: true,
               },
-              { label: "Inspired", name: "inspired", widget: text },
-              { label: "Specializes", name: "specializes", widget: text },
-              { label: "First Tattoo", name: "firstTattoo", widget: text },
-              { label: "Outside", name: "outside", widget: text },
+              {
+                label: "Inspired",
+                name: "inspired",
+                widget: text,
+                required: true,
+              },
+              {
+                label: "Specializes",
+                name: "specializes",
+                widget: text,
+                required: true,
+              },
+              {
+                label: "First Tattoo",
+                name: "firstTattoo",
+                widget: text,
+                required: true,
+              },
+              {
+                label: "Outside",
+                name: "outside",
+                widget: text,
+                required: true,
+              },
             ],
         }
 
@@ -105,89 +137,224 @@ collections:
       - file: "site/content/_index.md"
         label: "Home Page"
         name: "home"
+
         fields:
-          - { label: Title, name: title, widget: hidden, default: "Home"}
-          - { label: Video, name: video, widget: file, hint: Make sure that this is an MP4 file }
+          - {
+              label: Title,
+              name: title,
+              widget: hidden,
+              default: "Home",
+              required: true,
+            }
+          - {
+              label: Video,
+              name: video,
+              widget: file,
+              required: true,
+              hint: Make sure that this is an MP4 file,
+            }
 
           - {
               label: "About True Love",
               name: blurb,
               widget: object,
+              required: true,
               fields:
                 [
-                  { label: "Heading", name: "heading", widget: string },
-                  { label: "Text", name: "text", widget: "text" },
+                  {
+                    label: "Heading",
+                    name: "heading",
+                    widget: string,
+                    required: true,
+                  },
+                  {
+                    label: "Text",
+                    name: "text",
+                    widget: "text",
+                    required: true,
+                  },
                 ],
             }
-          - { label: Parallax Image 1, name: parallax1, widget: image }
+          - {
+              label: Parallax Image 1,
+              name: parallax1,
+              widget: image,
+              required: true,
+            }
 
           - {
               label: "Care Section",
               name: aftercare,
               widget: list,
-
+              required: true,
               fields:
                 [
                   {
                     label: "Type",
                     name: "type",
                     widget: select,
+                    required: true,
                     options: ["Tattoos", "Piercings"],
                   },
-                  { label: "Is Hidden", name: "isDraft", widget: boolean },
+                  {
+                    label: "Is Hidden",
+                    name: "isDraft",
+                    widget: boolean,
+                    required: true,
+                  },
                   {
                     label: "Sections",
                     name: sections,
                     widget: list,
+                    required: true,
                     fields:
                       [
-                        { label: Heading, name: title, widget: string },
-                        { label: Body, name: content, widget: markdown },
+                        {
+                          label: Heading,
+                          name: title,
+                          widget: string,
+                          required: true,
+                        },
+                        {
+                          label: Body,
+                          name: content,
+                          widget: markdown,
+                          required: true,
+                        },
                       ],
                   },
                 ],
             }
-          - { label: Parallax Image 2, name: parallax2, widget: image }
+          - {
+              label: Parallax Image 2,
+              name: parallax2,
+              widget: image,
+              required: true,
+            }
 
           - {
               label: "Artists",
               name: artists,
               widget: object,
+              required: true,
               fields:
                 [
-                  { label: "Heading", name: "heading", widget: string },
-                  { label: "Text", name: "text", widget: "text" },
+                  {
+                    label: "Heading",
+                    name: "heading",
+                    widget: string,
+                    required: true,
+                  },
+                  {
+                    label: "Text",
+                    name: "text",
+                    widget: "text",
+                    required: true,
+                  },
                 ],
             }
-          - { label: Parallax Image 3, name: parallax3, widget: image }
+          - {
+              label: Parallax Image 3,
+              name: parallax3,
+              widget: image,
+              required: true,
+            }
           - {
               label: "Faqs",
               name: faqs,
               widget: list,
+              required: true,
               fields:
                 [
-                  { label: "Heading", name: "question", widget: string },
-                  { label: "Content", name: "answer", widget: text },
+                  {
+                    label: "Heading",
+                    name: "question",
+                    widget: string,
+                    required: true,
+                  },
+                  {
+                    label: "Content",
+                    name: "answer",
+                    widget: text,
+                    required: true,
+                  },
                 ],
             }
-          - { label: Parallax Image 4, name: parallax4, widget: image }
-          - { label: Shop info, name: info, widget: object, fields: 
+          - {
+              label: Parallax Image 4,
+              name: parallax4,
+              widget: image,
+              required: true,
+            }
+          - {
+              label: Shop info,
+              name: info,
+              widget: object,
+              required: true,
+              fields:
                 [
-                  { label: "Street Address", name: "address", widget: string },
-                  { label: "City", name: "city", widget: string },
-                  { label: "State", name: "state", widget: string },
-                  { label: "Zip Code", name: "zip", widget: number },
-                  { label: "Phone Number", name: "phone", widget: string },
-                  { label: "Logo Small", name: "logoSmall", widget: image },
-                  { label: "Logo Big", name: "logoBig", widget: image },
-                  { label: Hours, name: hours, widget: list, fields: 
+                  {
+                    label: "Street Address",
+                    name: "address",
+                    widget: string,
+                    required: true,
+                  },
+                  {
+                    label: "City",
+                    name: "city",
+                    widget: string,
+                    required: true,
+                  },
+                  {
+                    label: "State",
+                    name: "state",
+                    widget: string,
+                    required: true,
+                  },
+                  {
+                    label: "Zip Code",
+                    name: "zip",
+                    widget: number,
+                    required: true,
+                  },
+                  {
+                    label: "Phone Number",
+                    name: "phone",
+                    widget: string,
+                    required: true,
+                  },
+                  {
+                    label: "Logo Small",
+                    name: "logoSmall",
+                    widget: image,
+                    required: true,
+                  },
+                  {
+                    label: "Logo Big",
+                    name: "logoBig",
+                    widget: image,
+                    required: true,
+                  },
+                  {
+                    label: Hours,
+                    name: hours,
+                    widget: list,
+                    required: true,
+                    fields:
                       [
-                        { label: "Day Range", name: "day", widget: string },
-                        { label: "Time Range", name: "times", widget: string },
-                      ]
-                  }  
-
-                ]
-            }  
-
-          
+                        {
+                          label: "Day Range",
+                          name: "day",
+                          widget: string,
+                          required: true,
+                      },
+                        {
+                          label: "Time Range",
+                          name: "times",
+                          widget: string,
+                          required: true,
+                      },
+                      ],
+                  },
+                ],
+            }
