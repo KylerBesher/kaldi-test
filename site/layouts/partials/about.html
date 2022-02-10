@@ -1,0 +1,17 @@
+<div id="about" class="bg-black-2 white pv4 relative " style="z-index: 100">
+  <div class="flex-l flex-column ph3 center mw7 ">
+
+    
+    {{ partial "header" (dict "heading" .heading )}}
+    
+    <div class="flex flex-column flex-row-ns justify-center">
+      <p class="mb0 w-70-ns pv3 tl ph3 pl4-ns f6" style="line-height: 1.3rem">{{.text}}</p>
+      <div class="w-60 center w-30-ns  ph4  pl0-l mt3 mt0-ns" style="min-width: 250px">
+        <img src="{{.image}}" />
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

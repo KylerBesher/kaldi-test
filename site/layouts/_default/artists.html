@@ -1,0 +1,37 @@
+<style>
+	#{{.Params.firstName}}{{.Params.lastName}} {
+	background: url({{.Params.imageBw}});
+	background-size: cover;
+	}
+
+	.staffSquare:hover #{{.Params.firstName}}{{.Params.lastName}}{
+		background-image: none;
+		transition: 1s ease;
+		background: transparent;
+	}
+
+	.staffBg{
+	background-size: cover;
+}	
+</style>
+
+<div
+	class=" no-underline br1 flex flex-column tc staffSquare center w-80 w-30-ns br1  ph0-ns mv3 border-box br1 ">
+	<h2 class="f3 b  lh-title mb1 primary altShadow3">{{ .Title }}</h2>
+	<div class="f4 b">{{.Params.position}}</div>
+	
+	<a href="{{ .Permalink }}" class=" flex w-100 flex-column mt2 align-center center">
+		<div class="raise  staffBg center w-100" style="background-image: url({{.Params.imageColor}});">
+			<div id="{{.Params.firstName}}{{.Params.lastName}}" class=" staffBg center w-100 backgroundBw" >
+
+				<img class="w-100" src={{.Params.imageColor}} style="visibility: hidden; " />
+			</div>
+		</div>
+
+	</a>
+	<div class="dn-ns">
+	<a href="{{ .Permalink }}" ><button class="btn  w-100  center mt2 dim raise bg-primary white">View My Profile</button></a>
+	</div>
+	{{/*  <p class="dn-ns link mv3 b dib black mb0">Read more →</p>  */}}
+
+</div>

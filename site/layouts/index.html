@@ -1,13 +1,39 @@
 {{ define "main" }}
+<div id="home"></div>
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
+{{ partial "video" .}}
 
-{{ partial "short-text" .Params.blurb}}
 
-{{ partial "2-up" .Params }}
+<div class="relative z-999 mv0">
+    {{ partial "about" .Params.blurb}}
 
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
+    {{ partial "parallax" (dict "backgroundImage" .Params.parallax1 "text" "True Love Staff") }}
+    {{ partial "services" .}}
 
-{{ partial "blog" . }}
+    {{ partial "parallax" (dict "backgroundImage" .Params.parallax2 "text" "True Love Staff") }}
+    {{ partial "artists" .}}
 
+    {{ partial "parallax" (dict "backgroundImage" .Params.parallax3 "text" "About True Love") }}
+    {{ partial "faq" .}}
+
+    {{ partial "parallax" (dict "backgroundImage" .Params.parallax4 "text" "About True Love") }}
+    {{ partial "shop" .}}
+
+
+    <div id="map">
+
+    </div>
+
+    <script>
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw"
+        iframe.style.height = "400px"
+        iframe.style.frameborder = "0"
+        iframe.style.border = "0"
+        iframe.style['margin-bottom'] = "-10px"
+        iframe.src = '{{.Params.mapIframe}}';
+        document.getElementById('map').appendChild(iframe);
+    </script>
+
+</div>
 {{ end }}

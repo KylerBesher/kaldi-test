@@ -1,6 +1,77 @@
 {{ define "main" }}
 
-{{ partial "jumbotron" (dict "imageUrl" "/img/7.jpg" "title" "This is where the heading goes" "subtitle" "This is where the subtitle goes") }}
-{{ .Content }}
+<div id="artistProfile" class="pt5-l pb3 bg-black-2">
+  <div class="mw7 center pt3 pt4-l">
+    <h2 class="f2 primary tc b altShadow tc">
+      {{.Params.firstName}} {{.Params.lastName}}
+    </h2>
 
-{{ end }}
+    <div class="w-100 flex flex-column flex-row-ns justify-around f6 pv3">
+      <div class="white f6 w-50-ns ph3">
+        <div class=" ">
+          <img
+            class="w-100 center myImage"
+            style="height: auto"
+            src="{{.Params.imageProfile}}"
+          />
+        </div>
+        <div class="w-100 pt3 white">
+          <span class="b primary">{{.Params.bio.type}} Since: </span>
+          {{.Params.bio.since}}
+        </div>
+        <div class="w-100 pt3 white">
+          <span class="b primary">Inspired By: </span>{{.Params.bio.inspired}}
+        </div>
+      </div>
+
+      <div class="white f6 w-50-ns ph3">
+        <div class="w-100 mt3 mt0-ns white">
+          <span class="b primary">Specializes In: </span
+          >{{.Params.bio.specializes}}
+        </div>
+        <div class="w-100 mt3 white">
+          <span class="b primary">First Tattoo: </span
+          >{{.Params.bio.firstTattoo}}
+        </div>
+        <div class="w-100 mt3 white">
+          <span class="b primary">Personal Life: </span>{{.Params.bio.outside}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="relative ph3 z-999 bg-black-2" style="max-width: 100vw">
+  <div class="flex mw7 center flex flex-column">
+    <a
+      href="https://www.instagram.com/{{.Params.igProfile}}"
+      target="_blank"
+      class="instagram_badge_wrap"
+      style="text-decoration: none; width: min-content"
+    >
+      <div class="instagram_logo_wrap">
+        <div class="instagram_logo"></div>
+      </div>
+      <div class="instagram_username">@{{.Params.igProfile}}</div>
+    </a>
+
+    {{ if .Params.fbProfile}}
+
+    <a
+      href="https://www.facebook.com/{{.Params.fbProfile}}"
+      target="_blank"
+      class="instagram_badge_wrap"
+      style="text-decoration: none; width: min-content"
+    >
+      <div class="instagram_logo_wrap">
+        <div class="facebook_logo"></div>
+      </div>
+      <div class="instagram_username">@{{.Params.igProfile}}</div>
+    </a>
+    {{end}}
+  </div>
+  <div class="relative mw7 center" id="instagram-feed-demo"></div>
+</div>
+
+{{ .Content }} {{ end }}
